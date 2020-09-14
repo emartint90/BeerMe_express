@@ -1,1 +1,1 @@
-GET http://localhost:3000/api/cervezas
+GET http://localhost:3000/api/cervezas/dorada

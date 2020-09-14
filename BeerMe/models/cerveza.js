@@ -1,8 +1,8 @@
 const dbConfig = require("../dbConfig");
 
-const getByName = () => {
+const getByName = (pNombre) => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM cervezas WHERE nombre = ?', (err, rows) => {
+        db.query('SELECT * FROM cervezas WHERE nombre = ?', [pNombre], (err, rows) => {
             if (err) {
                 reject(err);
             }
