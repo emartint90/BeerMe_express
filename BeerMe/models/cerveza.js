@@ -12,8 +12,19 @@ const getByName = (pNombre) => {
     });
 }
 
+const getByPais = (pNombre) => {
+    return new promise((resolve, reject) => {
+        db.query('SELECT * FROM cervezas WHERE pais = ?', [pPais], (err, rows) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(rows);
+        })
+    });
+}
+
 
 
 module.exports = {
-    getByName
+    getByName, getByPais
 }

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getByName } = require('../../models/cerveza');
+const { getByName, getByPais } = require('../../models/cerveza');
 
 router.get('/:nombre', async (req, res) => {
     // console.log(req.nombre);
@@ -11,6 +11,14 @@ router.get('/:nombre', async (req, res) => {
     }
 });
 
+router.get('/:pais', async (req, res) => {
+    try {
+        const cervezasPais = await getByPais(req.params.pais);
+        res.json(cervezasPais);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 
 
