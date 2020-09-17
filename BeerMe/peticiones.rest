@@ -1,6 +1,36 @@
-GET http://localhost:3000/api/cervezas/dorada
+
+##BUSCAR CERVEZA POR NOMBRE
+
+GET http://localhost:3000/api/cervezas/estrella
 
 
 ###
 
 GET http://localhost:3000/api/cervezas/españa
+
+
+###CREAR NUEVO USUARIO EN LA DB
+
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre":"Eulalia",
+    "email":"eulalia@gmail.com",
+    "fecha_nacimiento": "1992-12-10",
+    "password":"locomundo",
+    "repeat_password":"locomundo"
+}
+
+###COMPROBAR PASSWORD ENCRIPTADA
+
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre":"Laurel",
+    "email":"laurel@gmail.com",
+    "fecha_nacimiento": "1985-05-14",
+    "password":"1234",
+    "repeat_password":"1234"
+}
