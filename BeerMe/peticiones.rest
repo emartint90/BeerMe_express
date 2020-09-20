@@ -6,7 +6,7 @@ GET http://localhost:3000/api/cervezas/estrella
 
 ###
 
-GET http://localhost:3000/api/cervezas/españa
+GET http://localhost:3000/api/cervezas/Spain
 
 
 ###CREAR NUEVO USUARIO EN LA DB
@@ -28,9 +28,38 @@ POST http://localhost:3000/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "nombre":"Laurel",
-    "email":"laurel@gmail.com",
-    "fecha_nacimiento": "1985-05-14",
+    "nombre":"lorenzo",
+    "email":"lorenzo@gmail.com",
+    "fecha_nacimiento": "1978-06-14",
     "password":"1234",
     "repeat_password":"1234"
+}
+
+### COMPROBAR EL LOGIN
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email":"cristina@gmail.com",
+    "password":"1234"
+}
+
+### token e inntegrar cerveza favorita por el usuario
+GET http://localhost:3000/favoritas/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJjcmVhdGVkQXQiOjE2MDA2MDE3MzYsImV4cGlyZWRBdCI6MTYwMDYwNTMzNiwiaWF0IjoxNjAwNjAxNzM2fQ.Qv1oHy-MY2QyqJ1QXl8WhC7eYi9_lSpKb27tFH0ItKc
+
+
+### Registro NewCerveza
+
+POST http://localhost:3000/api/cervezas/registroCerveza
+Content-Type: application/json
+
+{
+    "nombre":"La Nueva Virgen, 360 ",
+    "cervecera":"Cervezas La Virgen",
+    "pais":"España",
+    "tipo":"Pale Ale",
+    "graduacion_alcohol":"5",
+    "descripcion":"La 360º es una cerveza rubia con extra de lúpulo que dará un giro radical a tu idea sobre la cerveza. Su interior te sorprenderá por inmenso sabor y frescura. Cerveza de alta fermentación que utiliza 3 veces más de lúpulo que una cerveza normal. Una ale de un limpio color rubio, con un característico sabor afrutado. Muy equilibrada, maltosa y amarga."
+
 }
