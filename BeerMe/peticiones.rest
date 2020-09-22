@@ -6,8 +6,11 @@ GET http://localhost:3000/api/cervezas/estrella
 
 ###
 
-GET http://localhost:3000/api/cervezas/Spain
+GET http://localhost:3000/api/cervezas/pais/United States
 
+### Busca países
+
+GET http://localhost:3000/api/cervezas/buscaPaises
 
 ###CREAR NUEVO USUARIO EN LA DB
 
@@ -40,13 +43,13 @@ POST http://localhost:3000/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email":"cristina@gmail.com",
-    "password":"1234"
+    "email":"diego@gmail.com",
+    "password":"locomundo"
 }
 
 ### token e inntegrar cerveza favorita por el usuario
 GET http://localhost:3000/favoritas/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJjcmVhdGVkQXQiOjE2MDA2MDE3MzYsImV4cGlyZWRBdCI6MTYwMDYwNTMzNiwiaWF0IjoxNjAwNjAxNzM2fQ.Qv1oHy-MY2QyqJ1QXl8WhC7eYi9_lSpKb27tFH0ItKc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJjcmVhdGVkQXQiOjE2MDA2NzI1NjEsImV4cGlyZWRBdCI6MTYwMDY3NjE2MSwiaWF0IjoxNjAwNjcyNTYxfQ.-I-p1h5IR0uo337xKIGNMjLwNlT3a3xN17GGrWxnQDA
 
 
 ### Registro NewCerveza
@@ -55,11 +58,25 @@ POST http://localhost:3000/api/cervezas/registroCerveza
 Content-Type: application/json
 
 {
-    "nombre":"La Nueva Virgen, 360 ",
-    "cervecera":"Cervezas La Virgen",
+    "nombre":"Keler",
+    "cervecera":"S.A DAMM 2017",
     "pais":"España",
-    "tipo":"Pale Ale",
-    "graduacion_alcohol":"5",
-    "descripcion":"La 360º es una cerveza rubia con extra de lúpulo que dará un giro radical a tu idea sobre la cerveza. Su interior te sorprenderá por inmenso sabor y frescura. Cerveza de alta fermentación que utiliza 3 veces más de lúpulo que una cerveza normal. Una ale de un limpio color rubio, con un característico sabor afrutado. Muy equilibrada, maltosa y amarga."
+    "tipo":"Larger",
+    "graduacion_alcohol":"6",
+    "descripcion":"Keler nació ha ya 129 años, fue fundada por los hermanos Teodor y Juan Kutz en 1890, en la fábrica El León. Las instalaciones se encontraban en el barrio de El Antiguo, en el casco histórico de San Sebastián.Color oro viejo, luminoso, con reflejos de roble nuevo. Brillante y de aspecto vivo. Burbujas sutiles, abundantes, que rematan en espuma blanca de larga persistencia. Olor de la malta cebada. Nariz compleja por las notas del lúpulo y la levadura. y tradicional. Muy sabrosa aunque ligera, fresca y con un carbónico integrado. Recuerdos a cereales tostados"
 
 }
+
+### Cervezas favoritas por userId
+
+GET http://localhost:3000/favoritas/beerlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJjcmVhdGVkQXQiOjE2MDA2OTMwOTAsImV4cGlyZWRBdCI6MTYwMDY5NjY5MCwiaWF0IjoxNjAwNjkzMDkwfQ.Z99GSe2PIM9TwZ4XTtl2mbFHZ0h6YsiZIg531pRoLCw
+
+
+### Eliminar cerveza favorita de la lista
+GET http://localhost:3000/favoritas/beerlist/delete/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJjcmVhdGVkQXQiOjE2MDA3MDUyMzMsImV4cGlyZWRBdCI6MTYwMDcwODgzMywiaWF0IjoxNjAwNzA1MjMzfQ.avtQru4bYlsSPayiOs4Y0wpqhPGsin_U_4Pf3UoCS64
+
+### Comprueba que la cerveza ya está entre favoritas
+GET http://localhost:3000/favoritas/beerlist/comprobacion/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJjcmVhdGVkQXQiOjE2MDA3MDk3ODQsImV4cGlyZWRBdCI6MTYwMDcxMzM4NCwiaWF0IjoxNjAwNzA5Nzg0fQ.lDv7VM1vY4ai-9JgDeLBFQguNY-B6aj-6Dt7L5wLDmk

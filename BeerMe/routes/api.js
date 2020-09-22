@@ -10,6 +10,7 @@ const { checkToken } = require('./middlewares');
 
 
 router.use('/cervezas', apiCervezasRouter);
+router.use('/buscaPaises', apiCervezasRouter);
 router.use('/usuarios', apiUsuariosRouter);
 router.use('/favoritas', checkToken, favoritasRouter);
 
